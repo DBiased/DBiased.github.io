@@ -55,21 +55,25 @@
     }
     .brick-icon {
       width: 80px;
-      height: 80px;
+      height: 180px; /* Adjust height to fit bricks */
       margin-top: 50px;
     }
     .brick {
-      fill: none;
-      stroke: #fff;
-      stroke-width: 5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      animation: bricklaying 2s linear infinite;
+      fill: #fff; /* White color for bricks */
+      stroke: none; /* No stroke */
+    }
+    .brick:nth-child(1) {
+      animation: bricklaying 1s linear infinite;
+    }
+    .brick:nth-child(2) {
+      animation: bricklaying 1s linear infinite 0.5s;
+    }
+    .brick:nth-child(3) {
+      animation: bricklaying 1s linear infinite 1s;
     }
     @keyframes bricklaying {
-      0% { stroke-dasharray: 0 100; }
-      50% { stroke-dasharray: 50 100; }
-      100% { stroke-dasharray: 0 100; }
+      0% { transform: translateY(-180px); } /* Move brick off screen */
+      100% { transform: translateY(0); } /* Move brick into position */
     }
   </style>
 </head>
@@ -79,10 +83,10 @@
   </div>
   <h1>Building Something New</h1>
   <p>...</p>
-  <svg class="brick-icon" viewBox="0 0 100 100">
-    <rect class="brick" x="20" y="20" width="60" height="30" />
-    <rect class="brick" x="20" y="55" width="60" height="30" />
+  <svg class="brick-icon" viewBox="0 0 100 200">
+    <rect class="brick" x="20" y="130" width="60" height="30" />
     <rect class="brick" x="20" y="90" width="60" height="30" />
+    <rect class="brick" x="20" y="50" width="60" height="30" />
   </svg>
   <script>
     // Script to hide scrollbars while maintaining scrolling functionality
