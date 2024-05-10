@@ -3,41 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building Something New</title>
+  <title>Loading...</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0; /* Set a light background color */
+      background-color: #ff7f00; /* Orange background color */
       text-align: center;
       padding: 50px;
+      overflow: hidden; /* Hide overflow to contain animation */
+    }
+    .container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Move the container behind other elements */
+    }
+    .background {
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      top: -100%;
+      left: -100%;
+      background: linear-gradient(45deg, #ff7f00, #ffcc00, #ff7f00); /* Orange gradient */
+      animation: movement 10s linear infinite alternate; /* Apply the movement animation */
+    }
+    @keyframes movement {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
     }
     h1 {
-      color: #333; /* Dark text color */
+      color: #fff; /* White text color */
+      font-size: 48px; /* Increase font size */
+      margin-bottom: 20px; /* Add some space below */
+      text-transform: uppercase; /* Uppercase text */
+      letter-spacing: 4px; /* Add letter spacing */
     }
     p {
-      color: #666; /* Medium text color */
+      color: #ddd; /* Light gray text color */
       margin-top: 20px;
     }
     .underline {
-      border-bottom: 2px solid #3498db; /* Blue underline */
+      border-bottom: 2px solid #fff; /* White underline */
       display: inline-block;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
     }
     .message {
       font-size: 24px;
-      color: #555; /* Dark gray text color */
+      color: #fff; /* White text color */
       margin-top: 50px;
-      animation: pulse 2s infinite; /* Apply the pulse animation */
+    }
+    .loader {
+      border: 4px solid #fff;
+      border-radius: 50%;
+      border-top: 4px solid #ff7f00;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite; /* Apply the spinning animation */
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <h1>Building <span class="underline">Something New</span></h1>
-  <p>Stay tuned for updates!</p>
-  <div class="message">Exciting things are happening...</div>
+  <div class="container">
+    <div class="background"></div>
+  </div>
+  <h1>Loading...</h1>
+  <p>Just a moment while we prepare something exciting!</p>
+  <div class="loader"></div>
+  <script>
+    // Script to hide scrollbars while maintaining scrolling functionality
+    document.documentElement.style.overflow = 'hidden';  // Hide the scrollbar
+    setTimeout(() => {
+      document.documentElement.style.overflow = '';  // Restore scrollbar after 3 seconds
+    }, 3000);
+  </script>
 </body>
 </html>
