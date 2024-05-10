@@ -53,27 +53,15 @@
       color: #fff; /* White text color */
       margin-top: 50px;
     }
-    .brick-icon {
+    .spinner {
       width: 80px;
-      height: 180px; /* Adjust height to fit bricks */
+      height: 80px;
       margin-top: 50px;
+      animation: spin 2s linear infinite; /* Apply the spinning animation */
     }
-    .brick {
-      fill: #fff; /* White color for bricks */
-      stroke: none; /* No stroke */
-    }
-    .brick:nth-child(1) {
-      animation: bricklaying 1s linear infinite;
-    }
-    .brick:nth-child(2) {
-      animation: bricklaying 1s linear infinite 0.5s;
-    }
-    .brick:nth-child(3) {
-      animation: bricklaying 1s linear infinite 1s;
-    }
-    @keyframes bricklaying {
-      0% { transform: translateY(-180px); } /* Move brick off screen */
-      100% { transform: translateY(0); } /* Move brick into position */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -83,11 +71,11 @@
   </div>
   <h1>Building Something New</h1>
   <p>...</p>
-  <svg class="brick-icon" viewBox="0 0 100 200">
-    <rect class="brick" x="20" y="130" width="60" height="30" />
-    <rect class="brick" x="20" y="90" width="60" height="30" />
-    <rect class="brick" x="20" y="50" width="60" height="30" />
-  </svg>
+  <div class="spinner">
+    <!-- Use a spinning emoji here -->
+    <!-- You can replace the content of this div with any SVG or image you like -->
+    🌀
+  </div>
   <script>
     // Script to hide scrollbars while maintaining scrolling functionality
     document.documentElement.style.overflow = 'hidden';  // Hide the scrollbar
