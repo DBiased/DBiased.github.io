@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building Something New</title>
+  <title>Loading...</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #ff7f00; /* Orange background color */
       text-align: center;
       padding: 50px;
-      margin: 0;
-      overflow: hidden;
+      overflow: hidden; /* Hide overflow to contain animation */
     }
     .container {
       position: absolute;
@@ -19,40 +18,70 @@
       height: 100%;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: -1; /* Move the container behind other elements */
     }
-    .brick-animation {
+    .background {
       position: absolute;
-      width: 100%;
-      height: 200%;
-      background-image: url('https://via.placeholder.com/150/FFFFFF/ff7f00'); /* Placeholder for brick image */
-      background-repeat: repeat-y;
-      animation: bricklaying 20s linear infinite;
+      width: 300%;
+      height: 300%;
+      top: -100%;
+      left: -100%;
+      background: linear-gradient(45deg, #ff7f00, #ffcc00, #ff7f00); /* Orange gradient */
+      animation: movement 10s linear infinite alternate; /* Apply the movement animation */
     }
-    @keyframes bricklaying {
-      0% { background-position: 0 100%; }
-      100% { background-position: 0 0; }
+    @keyframes movement {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
     }
     h1 {
-      color: #fff;
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+      color: #fff; /* White text color */
+      font-size: 48px; /* Increase font size */
+      margin-bottom: 20px; /* Add some space below */
+      text-transform: uppercase; /* Uppercase text */
+      letter-spacing: 4px; /* Add letter spacing */
     }
     p {
-      color: #ddd;
-      font-size: 18px;
+      color: #ddd; /* Light gray text color */
       margin-top: 20px;
+    }
+    .underline {
+      border-bottom: 2px solid #fff; /* White underline */
+      display: inline-block;
+    }
+    .message {
+      font-size: 24px;
+      color: #fff; /* White text color */
+      margin-top: 50px;
+    }
+    .loader {
+      border: 4px solid #fff;
+      border-radius: 50%;
+      border-top: 4px solid #ff7f00;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite; /* Apply the spinning animation */
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="brick-animation"></div>
+    <div class="background"></div>
   </div>
   <h1>Building Something New</h1>
-  <p>Stay tuned for exciting updates!</p>
+  <p>...</p>
+  <div class="loader"></div>
+  <script>
+    // Script to hide scrollbars while maintaining scrolling functionality
+    document.documentElement.style.overflow = 'hidden';  // Hide the scrollbar
+    setTimeout(() => {
+      document.documentElement.style.overflow = '';  // Restore scrollbar after 3 seconds
+    }, 3000);
+  </script>
 </body>
 </html>
