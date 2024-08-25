@@ -4,85 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DBiased</title>
+  <link rel="icon" href="/mnt/data/LOGO.png" type="image/png"> <!-- Favicon link -->
   <style>
-body {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  font-family: Arial, sans-serif;
-  background-color: #ff7f00; /* Orange background color */
-  overflow: hidden; /* Hide overflow to contain animation */
-}
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #FF9900;
+      color: #2B0857;
+      text-align: center;
+      margin: 0;
+    }
 
-h1, p {
-  margin: 0; /* Remove default margins */
-}
-    .container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1; /* Move the container behind other elements */
-    }
-    .background {
-      position: absolute;
-      width: 300%;
-      height: 300%;
-      top: -100%;
-      left: -100%;
-      background: linear-gradient(45deg, #ff7f00, #ffcc00, #ff7f00); /* Orange gradient */
-      animation: movement 10s linear infinite alternate; /* Apply the movement animation */
-    }
-    @keyframes movement {
-      0% { transform: translate(-25%, -25%) rotate(0deg); }
-      100% { transform: translate(-25%, -25%) rotate(360deg); }
-    }
     h1 {
-      color: #fff; /* White text color */
-      font-size: 48px; /* Increase font size */
-      margin-bottom: 20px; /* Add some space below */
-      text-transform: uppercase; /* Uppercase text */
-      letter-spacing: 4px; /* Add letter spacing */
+      font-size: 48px;
+      margin-bottom: 20px;
     }
+
     p {
-      color: #ddd; /* Light gray text color */
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .email-box {
+      width: 300px;
+      padding: 10px;
+      border: 2px solid #2B0857;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #2B0857;
+    }
+
+    .submit-button {
       margin-top: 20px;
-    }
-    .underline {
-      border-bottom: 2px solid #fff; /* White underline */
-      display: inline-block;
-    }
-    .message {
-      font-size: 24px;
-      color: #fff; /* White text color */
-      margin-top: 50px;
-    }
-    .spinner {
-      width: 80px;
-      height: 80px;
-      margin-top: 50px;
-      animation: spin 2s linear infinite; /* Apply the spinning animation */
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      padding: 10px 20px;
+      border: none;
+      background-color: #2B0857;
+      color: #FF9900;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="background"></div>
-  </div>
-  <h1><a href="https://github.com/DBiased">Building Something New</a></h1>
-  </div>
-  <script>
-    // Script to hide scrollbars while maintaining scrolling functionality
-    document.documentElement.style.overflow = 'hidden';  // Hide the scrollbar
-    setTimeout(() => {
-      document.documentElement.style.overflow = '';  // Restore scrollbar after 3 seconds
-    }, 3000);
-  </script>
+  <h1>Hello</h1>
+  <p>hello again</p>
+  <p>If you're interested in our services, leave your email below:</p>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" class="email-box" name="email" placeholder="Your email" required>
+    <br>
+    <input type="submit" class="submit-button" value="Submit">
+  </form>
 </body>
 </html>
