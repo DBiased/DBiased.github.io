@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DBiased</title>
-  <link rel="icon" href="/mnt/data/LOGO Original.png" type="image/png">
+  <link rel="icon" href="LOGO 32x32.png" type="image/png">
   <style>
     body {
       display: flex;
@@ -12,24 +12,26 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: 'Cambira Math', serif;
+      font-family: 'Cambria Math', serif;
       background-color: #FF9900;
       color: #2B0857;
       text-align: center;
       margin: 0;
-      overflow: hidden; /* Hide overflow to contain animation */
+      overflow: hidden;
     }
 
     h1 {
       font-size: 48px;
       margin-bottom: 20px;
-      z-index: 1; /* Ensure text stays above the background */
+      position: relative;
+      z-index: 2;
     }
 
     p {
       font-size: 20px;
       margin-bottom: 40px;
-      z-index: 1; /* Ensure text stays above the background */
+      position: relative;
+      z-index: 2;
     }
 
     .email-box {
@@ -39,7 +41,8 @@
       border-radius: 5px;
       font-size: 16px;
       color: #2B0857;
-      z-index: 1; /* Ensure text stays above the background */
+      position: relative;
+      z-index: 2;
     }
 
     .submit-button {
@@ -51,7 +54,8 @@
       font-size: 16px;
       cursor: pointer;
       border-radius: 5px;
-      z-index: 1; /* Ensure button stays above the background */
+      position: relative;
+      z-index: 2;
     }
 
     .container {
@@ -60,7 +64,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 0; /* Move the container behind other elements */
+      z-index: 1;
     }
 
     .background {
@@ -69,8 +73,9 @@
       height: 300%;
       top: -100%;
       left: -100%;
-      background: linear-gradient(45deg, #FF9900, #FFCC00, #FF9900); /* Orange gradient */
-      animation: movement 10s linear infinite alternate; /* Apply the movement animation */
+      background: linear-gradient(45deg, #FF9900, #FFCC00, #FF9900);
+      animation: movement 10s linear infinite alternate;
+      z-index: 1;
     }
 
     @keyframes movement {
@@ -83,10 +88,10 @@
   <div class="container">
     <div class="background"></div>
   </div>
-  <h1>Hello There!</h1>
-  <p>At DBiased we believe data can improve your investment decisions</p>
-  <p>If you would like to know more, leave your email below:</p>
-  <form action="https://formspree.io/f/xovayoza" method="POST">
+  <h1>Hello</h1>
+  <p>hello again</p>
+  <p>If you're interested in our services, leave your email below:</p>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <input type="email" class="email-box" name="email" placeholder="Your email" required>
     <br>
     <input type="submit" class="submit-button" value="Submit">
