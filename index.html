@@ -11,29 +11,89 @@
     body {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: 'Exo 2', sans-serif; /* Set font to Exo 2 */
+      font-family: 'Exo 2', sans-serif;
       background-color: #FF9900;
       color: #2B0857;
       text-align: center;
       margin: 0;
       overflow: hidden;
+      position: relative;
+      padding: 24px 16px 32px;
+      box-sizing: border-box;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+    .container {
       position: relative;
-      z-index: 2;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      position: absolute;
     }
 
-    p {
-      font-size: 20px;
-      margin-bottom: 40px;
+    .background {
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      top: -100%;
+      left: -100%;
+      background: linear-gradient(45deg, #FF9900, #FFCC00, #FF9900);
+      animation: movement 10s linear infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes movement {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
+    }
+
+    .main {
       position: relative;
       z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .typing-line {
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: 0;
+      margin: 0;
+      min-height: 1.4em;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      white-space: nowrap;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 1px;
+      height: 1.05em;
+      background: currentColor;
+      animation: blink 0.8s steps(1) infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 4px;
     }
 
     .email-box {
@@ -59,44 +119,54 @@
       position: relative;
       z-index: 2;
     }
-
-    .container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-
-    .background {
-      position: absolute;
-      width: 300%;
-      height: 300%;
-      top: -100%;
-      left: -100%;
-      background: linear-gradient(45deg, #FF9900, #FFCC00, #FF9900);
-      animation: movement 10s linear infinite alternate;
-      z-index: 1;
-    }
-
-    @keyframes movement {
-      0% { transform: translate(-25%, -25%) rotate(0deg); }
-      100% { transform: translate(-25%, -25%) rotate(360deg); }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="background"></div>
   </div>
-  <h1>Hello There!</h1>
-  <p>Wondering how data can <u>improve</u> your investment decisions?</p> <!-- Underlined "improve" -->
-  <p>If interested, leave an email below:</p>
-  <form action="https://formspree.io/f/xovayoza" method="POST">
-    <input type="email" class="email-box" name="email" placeholder="Your email" required>
-    <br>
-    <input type="submit" class="submit-button" value="Submit">
-  </form>
+  <div class="main">
+    <div class="typing-line" aria-live="polite">
+      <span id="typing-text"></span><span class="cursor" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="footer">
+    <form action="https://formspree.io/f/xovayoza" method="POST">
+      <input type="email" class="email-box" name="email" placeholder="Your email" required>
+      <br>
+      <input type="submit" class="submit-button" value="Submit">
+    </form>
+  </div>
+  <script>
+    const text = "Market logics are shifting...";
+    const typingText = document.getElementById("typing-text");
+    const typeDelay = 90;
+    const deleteDelay = 45;
+    const holdDelay = 2000;
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function runLoop() {
+      while (true) {
+        for (let i = 0; i <= text.length; i++) {
+          typingText.textContent = text.slice(0, i);
+          await wait(typeDelay);
+        }
+
+        await wait(holdDelay);
+
+        for (let i = text.length; i >= 0; i--) {
+          typingText.textContent = text.slice(0, i);
+          await wait(deleteDelay);
+        }
+
+        await wait(250);
+      }
+    }
+
+    runLoop();
+  </script>
 </body>
 </html>
