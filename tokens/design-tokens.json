@@ -1,0 +1,87 @@
+{
+  "brand": {
+    "name": "DBiased",
+    "source": "dbiased.com",
+    "description": "A bold market-intelligence brand with a compact, high-contrast web presence."
+  },
+  "color": {
+    "orange": "#FF9900",
+    "gold": "#FFCC00",
+    "violet": "#2B0857",
+    "violetDeep": "#18002F",
+    "cream": "#FFF4D6",
+    "white": "#FFFFFF",
+    "ink": "#1A0B33"
+  },
+  "semantic": {
+    "background": "#FF9900",
+    "backgroundAlt": "#FFCC00",
+    "surface": "#FFF4D6",
+    "surfaceMuted": "#FFFFFF",
+    "text": "#2B0857",
+    "textStrong": "#18002F",
+    "ctaBackground": "#2B0857",
+    "ctaText": "#FF9900",
+    "border": "#2B0857",
+    "focusRing": "#18002F",
+    "success": "#1C7C54",
+    "warning": "#D97706",
+    "danger": "#B42318"
+  },
+  "typography": {
+    "fontDisplay": "\"Exo 2\", \"Segoe UI\", sans-serif",
+    "fontBody": "\"Exo 2\", \"Segoe UI\", sans-serif",
+    "fontMono": "ui-monospace, SFMono-Regular, Consolas, monospace",
+    "lineHeightTight": 1.05,
+    "lineHeightBase": 1.4,
+    "scale": {
+      "xs": 12,
+      "sm": 14,
+      "md": 16,
+      "lg": 20,
+      "xl": 28,
+      "2xl": 40,
+      "3xl": 56
+    }
+  },
+  "space": {
+    "0": 0,
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 20,
+    "6": 24,
+    "8": 32,
+    "10": 40,
+    "12": 48,
+    "16": 64
+  },
+  "radius": {
+    "sm": 4,
+    "md": 6,
+    "lg": 10,
+    "xl": 18,
+    "pill": 999
+  },
+  "border": {
+    "width": 2,
+    "widthStrong": 3
+  },
+  "shadow": {
+    "hard": "0 2px 0 #2B0857",
+    "lift": "0 10px 30px rgba(24, 0, 47, 0.18)"
+  },
+  "motion": {
+    "gradientDurationSeconds": 10,
+    "typingDelayMs": 90,
+    "deleteDelayMs": 45,
+    "holdDelayMs": 2000
+  },
+  "layout": {
+    "contentMaxWidth": 1120,
+    "narrowMaxWidth": 560,
+    "sectionPadding": 24
+  }
+}
+
